@@ -1,5 +1,9 @@
 # api-autotest-framework · 接口自动化测试框架
 
+[![api-autotest](https://github.com/renbohao888/api-autotest-framework/actions/workflows/ci.yml/badge.svg)](https://github.com/renbohao888/api-autotest-framework/actions/workflows/ci.yml)
+[![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](https://github.com/renbohao888/api-autotest-framework)
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 一个面向「秒杀 / 电商交易类接口」的分层接口自动化测试框架：**YAML 数据驱动 + 分层设计 + 断言结构化 + 接口与数据库双端校验 + 并发一致性验证 + 性能门禁 + 自研 HTML 报告 + GitHub Actions 持续集成**。
 
 自带一个可独立运行的被测服务（SUT），`git clone` 后一条命令即可跑通全链路，不依赖 MySQL / Redis 等外部中间件，方便本地自测和 CI 落地。
