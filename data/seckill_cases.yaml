@@ -1,0 +1,150 @@
+# 秒杀下单接口的数据驱动用例（正向 / 边界 / 异常 / 鉴权 / 幂等 / 性能）
+# 只描述「前置步骤 + 请求 + 期望结果」，执行由 framework/runner.py 完成
+group: seckill_order
+cases:
+  - id: SEC-001
+    name: 库存充足时下单成功并返回待支付订单
+    tags: [smoke, regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 10}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 200
+    expect_code: 0
+    expect_data: {status: WAIT_PAY, remainStock: 9, amount: 99.0}
+    expect_not_none: [data.orderNo]
+    max_elapsed_ms: 1000
+
+  - id: SEC-002
+    name: 边界值：库存 1 时首单成功且库存归零
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 1}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 200
+    expect_code: 0
+    expect_data: {status: WAIT_PAY, remainStock: 0}
+
+  - id: SEC-003
+    name: 边界值：库存 0 时下单返回售罄
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 0}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 409
+    expect_code: 1007
+    expect_message_contains: 售罄
+
+  - id: SEC-004
+    name: 边界值：库存 1 已被他人抢完后下单返回售罄
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 1}}
+      - {method: POST, path: /api/seckill/order, user: u_002, json: {activityId: 1}, expect_code: 0}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 409
+    expect_code: 1007
+
+  - id: SEC-005
+    name: 幂等：同一用户重复下单被拒绝
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 10}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1}, expect_code: 0}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 409
+    expect_code: 1009
+    expect_message_contains: 重复下单
+
+  - id: SEC-006
+    name: 异常：缺少 activityId 参数
+    tags: [regression]
+    method: POST
+    path: /api/seckill/order
+    json: {}
+    expect_status: 400
+    expect_code: 1003
+    expect_message_contains: activityId
+
+  - id: SEC-007
+    name: 异常：activityId 传非数字
+    tags: [regression]
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: "abc"}
+    expect_status: 400
+    expect_code: 1003
+
+  - id: SEC-008
+    name: 异常：活动不存在
+    tags: [regression]
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 9999}
+    expect_status: 404
+    expect_code: 1004
+
+  - id: SEC-009
+    name: 异常：活动尚未开始
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/window, auth: false,
+         json: {activityId: 1, startOffset: 600, endOffset: 3600}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 409
+    expect_code: 1005
+
+  - id: SEC-010
+    name: 异常：活动已结束
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/window, auth: false,
+         json: {activityId: 1, startOffset: -3600, endOffset: -600}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 409
+    expect_code: 1006
+
+  - id: SEC-011
+    name: 鉴权：未携带 token 下单返回 401
+    tags: [smoke, regression]
+    method: POST
+    path: /api/seckill/order
+    auth: false
+    json: {activityId: 1}
+    expect_status: 401
+    expect_code: 1002
+
+  - id: SEC-012
+    name: 鉴权：伪造 token 下单返回 401
+    tags: [regression]
+    method: POST
+    path: /api/seckill/order
+    auth: false
+    headers: {Authorization: "Bearer tk_fake_token"}
+    json: {activityId: 1}
+    expect_status: 401
+    expect_code: 1002
+
+  - id: SEC-013
+    name: 性能基线：下单接口耗时低于 1000ms
+    tags: [regression, slow]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 10}}
+    method: POST
+    path: /api/seckill/order
+    json: {activityId: 1}
+    expect_status: 200
+    max_elapsed_ms: 1000

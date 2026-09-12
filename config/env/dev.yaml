@@ -1,0 +1,14 @@
+# 本地开发环境：由框架自动拉起被测服务，端口随机
+http:
+  base_url: http://127.0.0.1:8899
+
+log:
+  level: INFO
+
+sut:
+  auto_start: true
+  port: 0
+
+perf:
+  p95_ms: 800
+  min_qps: 50

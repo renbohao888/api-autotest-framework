@@ -1,0 +1,303 @@
+﻿.........s................FF......FF                                     [100%]用例总数 36 ｜ 通过 31 ｜ 失败 4 ｜ 跳过 1 ｜ 通过率 88.57%
+接口调用 153 次 ｜ 平均 9.3 ms ｜ P95 27.4 ms ｜ 最大 31.0 ms
+HTML 报告：C:\Users\rbh\.cline\data\workspaces\chat\api-autotest-framework\reports\report.html
+JSON 摘要：C:\Users\rbh\.cline\data\workspaces\chat\api-autotest-framework\reports\summary.json
+
+================================== FAILURES ===================================
+______________________ test_order_state_machine[ODR-004] ______________________
+
+api = <framework.http_client.ApiClient object at 0x000002110FE886E0>
+db = <framework.db.DBClient object at 0x000002110FE8BB60>
+case = {'id': 'ODR-004', 'name': '合法迁移：待支付 -> 已取消（库存回补）', 'tags': ['regression'], 'setup': [{'method': 'POST', 'path': '/api/...thod': 'POST', 'path': '/api/seckill/order', 'json': {'activityId': 1}, 'extract': {'order_no': 'data.orderNo'}}], ...}
+
+    @pytest.mark.parametrize("case", CASES)
+    def test_order_state_machine(api, db, case):
+>       run_case(api, case)
+
+testcases\test_30_order_state.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+framework\runner.py:93: in run_case
+    assert_subset(resp, case["expect_data"])
+framework\assertions.py:141: in assert_subset
+    _fail(name, "%s：以下字段不符合预期（%s）：\n    - %s"
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = '响应字段子集'
+detail = 'POST /api/order/SO2026091221155256CEFF/cancel -> 200 (4.01ms)：以下字段不符合预期（data）：\n    - remainStock 期望 5，实际 4'
+
+    def _fail(name, detail):
+        ctx = current()
+        if ctx is not None:
+            ctx.add(name, False, detail)
+>       raise AssertionError("[%s] %s" % (name, detail))
+E       AssertionError: [响应字段子集] POST /api/order/SO2026091221155256CEFF/cancel -> 200 (4.01ms)：以下字段不符合预期（data）：
+E           - remainStock 期望 5，实际 4
+
+framework\assertions.py:103: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 3.39ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 2.16ms
+----------------------------- Captured log setup ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 3.39ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 2.16ms
+---------------------------- Captured stdout call -----------------------------
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 4.11ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 5.06ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/order/SO2026091221155256CEFF/cancel -> 200 code=0 4.01ms
+------------------------------ Captured log call ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 4.11ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 5.06ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/order/SO2026091221155256CEFF/cancel HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/order/SO2026091221155256CEFF/cancel -> 200 code=0 4.01ms
+______________________ test_order_state_machine[ODR-005] ______________________
+
+api = <framework.http_client.ApiClient object at 0x000002110FE886E0>
+db = <framework.db.DBClient object at 0x000002110FE8BB60>
+case = {'id': 'ODR-005', 'name': '合法迁移：待支付 -> 支付超时关单（库存回补）', 'tags': ['regression'], 'setup': [{'method': 'POST', 'path': '/a...thod': 'POST', 'path': '/api/seckill/order', 'json': {'activityId': 1}, 'extract': {'order_no': 'data.orderNo'}}], ...}
+
+    @pytest.mark.parametrize("case", CASES)
+    def test_order_state_machine(api, db, case):
+>       run_case(api, case)
+
+testcases\test_30_order_state.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+framework\runner.py:93: in run_case
+    assert_subset(resp, case["expect_data"])
+framework\assertions.py:141: in assert_subset
+    _fail(name, "%s：以下字段不符合预期（%s）：\n    - %s"
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = '响应字段子集'
+detail = 'POST /api/admin/expire/SO2026091221155274240C -> 200 (4.15ms)：以下字段不符合预期（data）：\n    - remainStock 期望 5，实际 4'
+
+    def _fail(name, detail):
+        ctx = current()
+        if ctx is not None:
+            ctx.add(name, False, detail)
+>       raise AssertionError("[%s] %s" % (name, detail))
+E       AssertionError: [响应字段子集] POST /api/admin/expire/SO2026091221155274240C -> 200 (4.15ms)：以下字段不符合预期（data）：
+E           - remainStock 期望 5，实际 4
+
+framework\assertions.py:103: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 29.18ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 2.43ms
+----------------------------- Captured log setup ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 29.18ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 2.43ms
+---------------------------- Captured stdout call -----------------------------
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 3.96ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 5.34ms
+2026-09-12 21:15:52 | INFO  | atf.http           | POST /api/admin/expire/SO2026091221155274240C -> 200 code=0 4.15ms
+------------------------------ Captured log call ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 3.96ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 5.34ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:52] "POST /api/admin/expire/SO2026091221155274240C HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/expire/SO2026091221155274240C -> 200 code=0 4.15ms
+______________ test_same_user_concurrent_orders_only_one_success ______________
+
+api = <framework.http_client.ApiClient object at 0x000002110FE886E0>
+db = <framework.db.DBClient object at 0x000002110FE8BB60>
+
+    @pytest.mark.concurrency
+    def test_same_user_concurrent_orders_only_one_success(api, db):
+        """同一用户在同一秒内并发下单：只能成功 1 单（幂等），库存只扣 1。"""
+        stock = 10
+        api.post("/api/admin/reset", auth=False, retry=0, json_body={"stock": stock})
+        api.login("tester", PASSWORD)
+        clients = [api.clone() for _ in range(8)]        # 同一 token 的 8 个并发会话
+    
+        results, seconds = seckill_batch(clients)
+        codes = [resp.code() for resp in results]
+        success = codes.count(0)
+        duplicated = codes.count(1009)
+        limited = codes.count(1008)
+        others = sorted({code for code in codes if code not in (0, 1009, 1008)})
+        log.info("单人并发结果：成功 %d ｜ 重复下单 %d ｜ 限流 %d ｜ 其它 %s（%.2fs）",
+                 success, duplicated, limited, others, seconds)
+    
+        assert_equal("同一用户只允许成功 1 单（幂等）", success, 1)
+>       assert_equal("其余请求只能是「重复下单」或「限流」", success + duplicated + limited, len(codes))
+
+testcases\test_40_consistency.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+framework\assertions.py:277: in assert_equal
+    _fail(name, "期望 %r，实际 %r" % (expected, actual))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = '其余请求只能是「重复下单」或「限流」', detail = '期望 8，实际 6'
+
+    def _fail(name, detail):
+        ctx = current()
+        if ctx is not None:
+            ctx.add(name, False, detail)
+>       raise AssertionError("[%s] %s" % (name, detail))
+E       AssertionError: [其余请求只能是「重复下单」或「限流」] 期望 8，实际 6
+
+framework\assertions.py:103: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 23.46ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 2.11ms
+----------------------------- Captured log setup ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 23.46ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 2.11ms
+---------------------------- Captured stdout call -----------------------------
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 27.36ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 13.29ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 429 code=1008 4.86ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 429 code=1008 6.21ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 429 code=1008 7.11ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 500 code=500 13.28ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 429 code=1008 15.34ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 14.49ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 500 code=500 30.46ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 429 code=1008 26.08ms
+2026-09-12 21:15:54 | INFO  | atf.case.concurrency | 单人并发结果：成功 1 ｜ 重复下单 0 ｜ 限流 5 ｜ 其它 [500]（0.03s）
+------------------------------ Captured log call ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 27.36ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 13.29ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[31m[1mPOST /api/seckill/order HTTP/1.1[0m" 429 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[31m[1mPOST /api/seckill/order HTTP/1.1[0m" 429 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 429 code=1008 4.86ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[31m[1mPOST /api/seckill/order HTTP/1.1[0m" 429 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 429 code=1008 6.21ms
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 429 code=1008 7.11ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[35m[1mPOST /api/seckill/order HTTP/1.1[0m" 500 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[31m[1mPOST /api/seckill/order HTTP/1.1[0m" 429 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 500 code=500 13.28ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 429 code=1008 15.34ms
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 14.49ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[31m[1mPOST /api/seckill/order HTTP/1.1[0m" 429 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "[35m[1mPOST /api/seckill/order HTTP/1.1[0m" 500 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 500 code=500 30.46ms
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 429 code=1008 26.08ms
+INFO     atf.case.concurrency:test_40_consistency.py:98 单人并发结果：成功 1 ｜ 重复下单 0 ｜ 限流 5 ｜ 其它 [500]（0.03s）
+________________________ test_stock_restore_invariant _________________________
+
+api = <framework.http_client.ApiClient object at 0x000002110FE886E0>
+db = <framework.db.DBClient object at 0x000002110FE8BB60>
+
+    @pytest.mark.concurrency
+    def test_stock_restore_invariant(api, db):
+        """5 人下单后取消 2 单、超时关单 1 单：库存必须回补，且「库存 + 有效订单数」守恒。"""
+        initial_stock = 10
+        api.post("/api/admin/reset", auth=False, retry=0, json_body={"stock": initial_stock})
+        clients = login_batch(api, 5)
+        orders = [client.post("/api/seckill/order", retry=0,
+                              json_body={"activityId": 1}).get("data.orderNo")
+                  for client in clients]
+        assert_true("5 单全部下单成功", all(orders), "订单号：%s" % orders)
+    
+        clients[0].post("/api/order/%s/cancel" % orders[0], retry=0)
+        clients[1].post("/api/order/%s/cancel" % orders[1], retry=0)
+        clients[2].post("/api/admin/expire/%s" % orders[2], auth=False, retry=0)
+    
+        valid_orders = db.count("orders", "activity_id=1 AND status IN ('WAIT_PAY','PAID')")
+        current_stock = db.scalar("SELECT stock FROM activity WHERE activity_id=1")
+>       assert_db_value(db, "SELECT stock FROM activity WHERE activity_id=1", (), 8)
+
+testcases\test_40_consistency.py:125: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+framework\assertions.py:215: in assert_db_value
+    _fail(name, "期望 %r，实际 %r（SQL：%s，params=%s）" % (expected, actual, sql, params))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = '数据库校验'
+detail = '期望 8，实际 5（SQL：SELECT stock FROM activity WHERE activity_id=1，params=()）'
+
+    def _fail(name, detail):
+        ctx = current()
+        if ctx is not None:
+            ctx.add(name, False, detail)
+>       raise AssertionError("[%s] %s" % (name, detail))
+E       AssertionError: [数据库校验] 期望 8，实际 5（SQL：SELECT stock FROM activity WHERE activity_id=1，params=()）
+
+framework\assertions.py:103: AssertionError
+---------------------------- Captured stdout setup ----------------------------
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 21.56ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 14.17ms
+----------------------------- Captured log setup ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 21.56ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 14.17ms
+---------------------------- Captured stdout call -----------------------------
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/admin/reset -> 200 code=0 3.35ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 5.28ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 5.52ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 6.32ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 6.94ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/auth/login -> 200 code=0 7.34ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 18.84ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 5.46ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 4.95ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 20.2ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/seckill/order -> 200 code=0 5.11ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/order/SO2026091221155421A5A4/cancel -> 200 code=0 4.05ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/order/SO20260912211554E709B2/cancel -> 200 code=0 20.34ms
+2026-09-12 21:15:54 | INFO  | atf.http           | POST /api/admin/expire/SO202609122115549C8717 -> 200 code=0 3.78ms
+------------------------------ Captured log call ------------------------------
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/admin/reset HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/reset -> 200 code=0 3.35ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 5.28ms
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 5.52ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 6.32ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/auth/login HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 6.94ms
+INFO     atf.http:http_client.py:157 POST /api/auth/login -> 200 code=0 7.34ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 18.84ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 5.46ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 4.95ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 20.2ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/seckill/order HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/seckill/order -> 200 code=0 5.11ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/order/SO2026091221155421A5A4/cancel HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/order/SO2026091221155421A5A4/cancel -> 200 code=0 4.05ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/order/SO20260912211554E709B2/cancel HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/order/SO20260912211554E709B2/cancel -> 200 code=0 20.34ms
+INFO     werkzeug:_internal.py:97 127.0.0.1 - - [12/Sep/2026 21:15:54] "POST /api/admin/expire/SO202609122115549C8717 HTTP/1.1" 200 -
+INFO     atf.http:http_client.py:157 POST /api/admin/expire/SO202609122115549C8717 -> 200 code=0 3.78ms
+-------------------------- Captured stdout teardown ---------------------------
+2026-09-12 21:15:55 | INFO  | atf.fixture        | 被测服务已停止
+---------------------------- Captured log teardown ----------------------------
+INFO     atf.fixture:conftest.py:90 被测服务已停止
+============================= slowest 8 durations =============================
+1.23s call     testcases/test_40_consistency.py::test_200_users_race_for_limited_stock
+0.49s teardown testcases/test_40_consistency.py::test_stock_restore_invariant
+0.10s call     testcases/test_40_consistency.py::test_stock_restore_invariant
+0.07s call     testcases/test_40_consistency.py::test_same_user_concurrent_orders_only_one_success
+0.06s setup    testcases/test_00_smoke.py::test_main_flow_login_then_order
+0.06s call     testcases/test_20_seckill.py::test_seckill_order_cases[SEC-004]
+0.05s call     testcases/test_30_order_state.py::test_order_state_machine[ODR-003]
+0.04s call     testcases/test_00_smoke.py::test_main_flow_login_then_order
+=========================== short test summary info ===========================
+SKIPPED [1] testcases\test_10_auth.py:60: 已知风险：订单详情只校验登录态、未校验订单归属，已在 docs/测试方案.md「风险与待确认项」登记，待产品确认后补用例
+FAILED testcases/test_30_order_state.py::test_order_state_machine[ODR-004] - ...
+FAILED testcases/test_30_order_state.py::test_order_state_machine[ODR-005] - ...
+FAILED testcases/test_40_consistency.py::test_same_user_concurrent_orders_only_one_success
+FAILED testcases/test_40_consistency.py::test_stock_restore_invariant - Asser...
+4 failed, 31 passed, 1 skipped, 2 deselected in 3.46s
+> pytest -m not perf
+
+执行结束（退出码 1），HTML 报告：C:\Users\rbh\.cline\data\workspaces\chat\api-autotest-framework\reports\report.html

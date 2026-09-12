@@ -1,0 +1,15 @@
+# CI 环境（GitHub Actions 共享 runner）：超时放宽、性能阈值放宽，避免误报
+http:
+  timeout: 15
+
+log:
+  level: INFO
+
+sut:
+  auto_start: true
+  port: 0
+  startup_timeout: 30
+
+perf:
+  p95_ms: 1500
+  min_qps: 30

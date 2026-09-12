@@ -1,0 +1,8 @@
+# 运行框架与用例的最小依赖
+pytest>=7.4
+requests>=2.31
+PyYAML>=6.0
+
+# 被测服务（SUT）与数据校验
+Flask>=3.0
+PyMySQL>=1.1        # database.driver=mysql 时用于数据校验（本地 sqlite 无需安装）

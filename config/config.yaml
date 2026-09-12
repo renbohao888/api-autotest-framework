@@ -1,0 +1,50 @@
+# 全局默认配置：所有环境共用；config/env/<env>.yaml 与 ATF__* 环境变量可覆盖
+env: dev
+
+http:
+  base_url: http://127.0.0.1:8899
+  timeout: 10
+  retries: 2                        # 网络异常 / 502-504 的重试次数
+  backoff: 0.3                      # 重试退避系数（指数退避）
+  retry_on_status: [502, 503, 504]
+  verify_ssl: false
+
+auth:                               # 测试账号（被测服务里密码固定，仅用于本地/CI）
+  username: tester
+  password: test123
+
+log:
+  level: INFO
+  file: reports/atf.log             # 相对仓库根目录，按 5MB 滚动
+
+report:
+  dir: reports
+  html: report.html
+  json: summary.json
+  title: 秒杀服务 · 接口自动化测试报告
+
+database:                           # 数据校验用的库：本地/CI 用 sqlite，真实环境用 mysql
+  driver: sqlite                    # sqlite | mysql
+  path: ""                          # sqlite 文件（空 = 用框架自动拉起的临时库）
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: ""
+  database: seckill
+
+sut:                                # 被测服务：auto_start=true 时由用例自动拉起临时实例
+  auto_start: true
+  host: 127.0.0.1
+  port: 0                           # 0 = 自动挑空闲端口
+  db: ""                            # 空 = 每个会话一个独立的临时库
+  limit_per_user_per_second: 3
+  startup_timeout: 20
+
+concurrency:
+  workers: 200                      # 并发用例线程数
+  stock: 10                         # 并发场景的库存
+
+perf:                               # 性能门禁阈值
+  p95_ms: 800
+  error_rate: 0.01
+  min_qps: 50

@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>秒杀服务 · 接口自动化测试报告</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: #f4f6fa; color: #1f2329;
+       font-family: "Microsoft YaHei", "PingFang SC", Segoe UI, sans-serif; font-size: 14px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+.head { background: #1f4e79; color: #fff; padding: 18px 24px; border-radius: 10px 10px 0 0; }
+.head h1 { margin: 0 0 6px; font-size: 20px; }
+.head .meta { font-size: 12px; opacity: .85; }
+.cards { display: flex; flex-wrap: wrap; gap: 12px; background: #fff; padding: 16px 24px; }
+.card { flex: 1 1 120px; background: #f8fafc; border: 1px solid #e3e8ef; border-radius: 8px;
+        padding: 10px 14px; }
+.card .num { font-size: 20px; font-weight: 700; }
+.card .lbl { font-size: 12px; color: #667085; margin-top: 2px; }
+.card.ok .num { color: #12805c; }
+.card.bad .num { color: #d92d20; }
+.panel { background: #fff; padding: 16px 24px; border-top: 1px solid #eef1f6; }
+.panel h2 { font-size: 15px; margin: 6px 0 10px; color: #1f4e79; }
+.panel ul { margin: 0; padding-left: 20px; }
+.panel li { line-height: 1.7; }
+.mono { font-family: Consolas, monospace; color: #1f4e79; }
+.case { background: #fff; margin-top: 10px; border: 1px solid #e3e8ef; border-radius: 8px; }
+.case > summary { cursor: pointer; padding: 10px 14px; list-style: none; display: flex;
+                  gap: 10px; align-items: center; }
+.case > summary::-webkit-details-marker { display: none; }
+.badge { font-size: 12px; padding: 2px 8px; border-radius: 10px; color: #fff; }
+.badge.ok { background: #12805c; }
+.badge.bad { background: #d92d20; }
+.badge.skip { background: #98a2b3; }
+.cid { font-family: Consolas, monospace; color: #1f4e79; font-weight: 600; }
+.ms { margin-left: auto; color: #667085; font-size: 12px; }
+.mark { background: #eef4fd; color: #1f4e79; border-radius: 4px; padding: 1px 6px; font-size: 11px; }
+.body { border-top: 1px solid #eef1f6; padding: 12px 14px; }
+.sec { font-weight: 600; color: #1f4e79; margin: 10px 0 6px; }
+pre { background: #0f172a; color: #d6e2f0; padding: 10px; border-radius: 6px; overflow: auto;
+      font-family: Consolas, monospace; font-size: 12px; }
+pre.err { background: #fff5f5; color: #912018; border: 1px solid #fecaca; }
+.asserts { list-style: none; padding: 0; margin: 0; }
+.asserts li { padding: 4px 8px; border-radius: 4px; margin-bottom: 4px; font-size: 13px; }
+.asserts .a-ok { background: #f0fdf4; color: #14532d; }
+.asserts .a-bad { background: #fef2f2; color: #991b1b; }
+.ex { border: 1px solid #eef1f6; border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; }
+.ex .line { font-family: Consolas, monospace; }
+.ex .tag { color: #1f4e79; font-weight: 600; }
+.foot { text-align: center; color: #98a2b3; font-size: 12px; padding: 14px 0 4px; }
+</style></head><body><div class="wrap">
+<div class="head"><h1>秒杀服务 · 接口自动化测试报告</h1>
+<div class="meta">环境：dev ｜ 生成时间：2026-09-12 21:29:23 ｜ 用例耗时 7.41s</div></div>
+<div class="cards">
+<div class="card"><div class="num">38</div><div class="lbl">用例总数</div></div>
+<div class="card ok"><div class="num">37</div><div class="lbl">通过</div></div>
+<div class="card bad"><div class="num">0</div><div class="lbl">失败 / 异常</div></div>
+<div class="card"><div class="num">1</div><div class="lbl">跳过</div></div>
+<div class="card ok"><div class="num">100.0%</div><div class="lbl">通过率</div></div>
+<div class="card"><div class="num">257</div><div class="lbl">接口调用次数</div></div>
+<div class="card"><div class="num">9.98</div><div class="lbl">接口平均耗时 ms</div></div>
+<div class="card"><div class="num">26.16</div><div class="lbl">接口 P95 耗时 ms</div></div>
+<div class="card"><div class="num">30.07</div><div class="lbl">接口最大耗时 ms</div></div>
+</div>
+<div class="panel"><h2>失败用例</h2><ul><li>本次无失败用例</li></ul></div>
+<div class="panel"><h2>用例明细（点击展开请求 / 响应 / 断言）</h2><details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_health_check</span>
+<span>test_health_check</span><span class="mark">smoke</span><span class="ms">19.43 ms</span></summary>
+<div class="body"><div class="sec">断言明细（5 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：GET /api/health -&gt; 200 (18.57ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> 字段 data.version：data.version = &#x27;1.0.0&#x27;</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 7.76 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;822b48944e86&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_80fea74852084575bcf7429fd120f7fe&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;72136dec68db&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/health -> <b>200</b>
+(code=0, 18.57 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;service&quot;:&quot;seckill-sut&quot;,&quot;status&quot;:&quot;UP&quot;,&quot;version&quot;:&quot;1.0.0&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;026e47053c60&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_main_flow_login_then_order</span>
+<span>test_main_flow_login_then_order</span><span class="mark">smoke</span><span class="ms">37.93 ms</span></summary>
+<div class="body"><div class="sec">断言明细（9 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 200 (3.83ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/seckill/order -&gt; 200 (15.67ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> HTTP 状态码：GET /api/order/SO202609122129164FF09E -&gt; 200 (6.69ms)</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 3 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> 订单已落库：实际 1</li><li class="a-ok"><b>PASS</b> 库存已扣减：实际 9</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 16.53 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c37c319ad351&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 26.99 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_f411f52695fc448f8bc31ba8e27951b6&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8c23363579b1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 8.03 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;83bb90397ca7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.83 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_472d1107522e4735bf6c80ab184b67de&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;98d95ac422fd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 15.67 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129164FF09E&quot;,&quot;remainStock&quot;:9,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d375343458e9&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/order/SO202609122129164FF09E -> <b>200</b>
+(code=0, 6.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;amount&quot;:99.0,&quot;createdAt&quot;:&quot;2026-09-12 21:29:16&quot;,&quot;orderNo&quot;:&quot;SO202609122129164FF09E&quot;,&quot;status&quot;:&quot;WAIT_PAY&quot;,&quot;updatedAt&quot;:&quot;2026-09-12 21:29:16&quot;,&quot;userId&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;80a08e33903b&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_login_success_returns_usable_token</span>
+<span>test_login_success_returns_usable_token</span><span class="mark">smoke</span><span class="ms">6.64 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 200 (1.95ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> token 已下发：token=tk_d1794fec4d0d4224af8a74a34b8bc7a7</li><li class="a-ok"><b>PASS</b> HTTP 状态码：GET /api/health -&gt; 200 (3.27ms)</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 6.94 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;348c0405c60e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 14.38 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_6d38efa9c3f3462fbae9a39ceb5f8e25&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4b7540c85907&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 1.95 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_d1794fec4d0d4224af8a74a34b8bc7a7&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d7050ddc7c63&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/health -> <b>200</b>
+(code=0, 3.27 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;service&quot;:&quot;seckill-sut&quot;,&quot;status&quot;:&quot;UP&quot;,&quot;version&quot;:&quot;1.0.0&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3ed8c4ada694&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_login_wrong_password</span>
+<span>test_login_wrong_password</span><span class="mark">regression</span><span class="ms">3.82 ms</span></summary>
+<div class="body"><div class="sec">断言明细（4 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 401 (2.66ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1001，message=用户名或密码错误</li><li class="a-ok"><b>PASS</b> 响应文本包含 &#x27;错误&#x27;：命中关键字</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 24.96 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;893082a68836&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 27.58 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_2e2d969e4cec4bfbae8974ebcee2499f&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;448f825cc19a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>401</b>
+(code=1001, 2.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;wrong-password&quot;}</div>
+<pre>{&quot;code&quot;:1001,&quot;data&quot;:null,&quot;message&quot;:&quot;用户名或密码错误&quot;,&quot;traceId&quot;:&quot;bee4bbab393e&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">\u7f3a\u5bc6\u7801</span>
+<span>test_login_missing_params[\u7f3a\u5bc6\u7801]</span><span class="mark">regression</span><span class="ms">15.22 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 400 (14.3ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1003，message=用户名或密码不能为空</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.36 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c9354e37e5e5&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 21.16 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_2556c9a75c5a401bad731141095c477d&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;be0b792f7c63&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>400</b>
+(code=1003, 14.3 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;}</div>
+<pre>{&quot;code&quot;:1003,&quot;data&quot;:null,&quot;message&quot;:&quot;用户名或密码不能为空&quot;,&quot;traceId&quot;:&quot;a165d9520c60&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">\u7f3a\u7528\u6237\u540d</span>
+<span>test_login_missing_params[\u7f3a\u7528\u6237\u540d]</span><span class="mark">regression</span><span class="ms">2.93 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 400 (2.26ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1003，message=用户名或密码不能为空</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.0 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;92e1b7fe537a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 25.53 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_c8d19d4ef1794240aa56acbaca443329&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;07b450aa5ae0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>400</b>
+(code=1003, 2.26 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:1003,&quot;data&quot;:null,&quot;message&quot;:&quot;用户名或密码不能为空&quot;,&quot;traceId&quot;:&quot;d059ddcbfde4&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">\u53c2\u6570\u5168\u7f3a</span>
+<span>test_login_missing_params[\u53c2\u6570\u5168\u7f3a]</span><span class="mark">regression</span><span class="ms">4.12 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/auth/login -&gt; 400 (3.06ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1003，message=用户名或密码不能为空</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.22 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;63e4a0198e31&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 20.03 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_afc16784f8d8498499c5b1f31f2c17ba&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;49b834de9dbd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>400</b>
+(code=1003, 3.06 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1003,&quot;data&quot;:null,&quot;message&quot;:&quot;用户名或密码不能为空&quot;,&quot;traceId&quot;:&quot;6822dde3b534&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_order_without_token</span>
+<span>test_order_without_token</span><span class="mark">smoke</span><span class="ms">3.57 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/seckill/order -&gt; 401 (2.66ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1002，message=未登录或登录态已失效</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:16&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:16&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7f01d09732af&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 18.31 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_731ba4f0e48e466d819235bbb8dc6c0a&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;43c24d7cb970&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>401</b>
+(code=1002, 2.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1002,&quot;data&quot;:null,&quot;message&quot;:&quot;未登录或登录态已失效&quot;,&quot;traceId&quot;:&quot;ed22b05a61e7&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_order_with_forged_token</span>
+<span>test_order_with_forged_token</span><span class="mark">regression</span><span class="ms">5.11 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> HTTP 状态码：POST /api/seckill/order -&gt; 401 (3.66ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1002，message=未登录或登录态已失效</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.22 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e085c7c96811&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.41 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_f0f0c71e7bd24e30b2ff0bc6d5abbdff&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6911bf5ed887&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>401</b>
+(code=1002, 3.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1002,&quot;data&quot;:null,&quot;message&quot;:&quot;未登录或登录态已失效&quot;,&quot;traceId&quot;:&quot;95bd0c1919d5&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge skip">跳过</span><span class="cid">test_order_detail_ownership</span>
+<span>test_order_detail_ownership</span><span class="mark">skip</span><span class="ms">0.26 ms</span></summary>
+<div class="body"><div class="sec">失败信息</div><pre class="err">(&#x27;C:\\Users\\rbh\\.cline\\data\\workspaces\\chat\\api-autotest-framework\\testcases\\test_10_auth.py&#x27;, 60, &#x27;Skipped: 已知风险：订单详情只校验登录态、未校验订单归属，已在 docs/测试方案.md「风险与待确认项」登记，待产品确认后补用例&#x27;)</pre></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-001</span>
+<span>test_seckill_order_cases[SEC-001]</span><span class="mark">smoke</span> <span class="mark">regression</span><span class="ms">31.51 ms</span></summary>
+<div class="body"><div class="sec">断言明细（9 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.73ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (24.7ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 3 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> 字段 data.orderNo 非空：data.orderNo = &#x27;SO20260912212917D1A320&#x27;</li><li class="a-ok"><b>PASS</b> 接口耗时 ≤ 1000ms：/api/seckill/order 耗时 24.7ms</li><li class="a-ok"><b>PASS</b> 接口返回的剩余库存与库内一致：实际 9</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.24 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;64077dcce84a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_d7f4456226044daf81b628e989ebcecd&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;602a90b13337&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aa8f5ab05c2f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 24.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917D1A320&quot;,&quot;remainStock&quot;:9,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d1cb74a23013&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-002</span>
+<span>test_seckill_order_cases[SEC-002]</span><span class="mark">regression</span><span class="ms">14.7 ms</span></summary>
+<div class="body"><div class="sec">断言明细（5 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.52ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (8.23ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 6.1 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c1a0bb597f0b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.59 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_fea3622baef345fcbfb764d7dcf266d5&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;69f274491024&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.52 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:1},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a7bd7ee2a21b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 8.23 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917D85C6A&quot;,&quot;remainStock&quot;:0,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4621aacaf8b3&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-003</span>
+<span>test_seckill_order_cases[SEC-003]</span><span class="mark">regression</span><span class="ms">11.12 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (5.5ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 409 (3.88ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1007，message=库存不足，已售罄</li><li class="a-ok"><b>PASS</b> 提示语包含关键字：命中关键字</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 0 条</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.78 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b757cf1ad294&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.79 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_d836373eed62442d9cc49c8e35f861a9&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d12c269c7015&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.5 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 0}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:0},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6200d70b2c4c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>409</b>
+(code=1007, 3.88 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1007,&quot;data&quot;:null,&quot;message&quot;:&quot;库存不足，已售罄&quot;,&quot;traceId&quot;:&quot;743b9ba88824&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-004</span>
+<span>test_seckill_order_cases[SEC-004]</span><span class="mark">regression</span><span class="ms">21.42 ms</span></summary>
+<div class="body"><div class="sec">断言明细（7 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.49ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (6.2ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 业务码：code=0，message=success</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 409 (4.14ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1007，message=库存不足，已售罄</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;95ee180de8c5&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_27d12345fb35411c84cc6290c24411f1&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;968ce99b72fe&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.49 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:1},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ca547c2e8d8e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.86 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;u_002&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_b5a0a8c1afb1425fb1d4e7368adc8552&quot;,&quot;username&quot;:&quot;u_002&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aa687d80a1b6&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 6.2 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129178F0870&quot;,&quot;remainStock&quot;:0,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;12e19420b58c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>409</b>
+(code=1007, 4.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1007,&quot;data&quot;:null,&quot;message&quot;:&quot;库存不足，已售罄&quot;,&quot;traceId&quot;:&quot;58f25a8cbf49&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-005</span>
+<span>test_seckill_order_cases[SEC-005]</span><span class="mark">regression</span><span class="ms">29.0 ms</span></summary>
+<div class="body"><div class="sec">断言明细（8 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (5.33ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (18.34ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 业务码：code=0，message=success</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 409 (3.62ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1009，message=您已参与过该活动，请勿重复下单</li><li class="a-ok"><b>PASS</b> 提示语包含关键字：命中关键字</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（5 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 6.81 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3619a68d60ce&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.1 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_191830ea5f60462cb10810fb8118cc81&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2ef4fc2311e8&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.33 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;503846a5cf4c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 18.34 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917AA21A4&quot;,&quot;remainStock&quot;:9,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f0f380ac3d8f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>409</b>
+(code=1009, 3.62 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1009,&quot;data&quot;:null,&quot;message&quot;:&quot;您已参与过该活动，请勿重复下单&quot;,&quot;traceId&quot;:&quot;f56c0ec4bdd5&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-006</span>
+<span>test_seckill_order_cases[SEC-006]</span><span class="mark">regression</span><span class="ms">3.32 ms</span></summary>
+<div class="body"><div class="sec">断言明细（4 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 400 (2.24ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1003，message=activityId 不能为空</li><li class="a-ok"><b>PASS</b> 提示语包含关键字：命中关键字</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.62 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;70762d2d7d9d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 18.12 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_846eaf508d38443b91759f9f3d29b74e&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;48aacbbcae63&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>400</b>
+(code=1003, 2.24 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1003,&quot;data&quot;:null,&quot;message&quot;:&quot;activityId 不能为空&quot;,&quot;traceId&quot;:&quot;c1dcfe6d684a&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-007</span>
+<span>test_seckill_order_cases[SEC-007]</span><span class="mark">regression</span><span class="ms">27.34 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 400 (25.99ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1003，message=activityId 必须为数字</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 27.61 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;26afec92a8f3&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.92 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_4a00ed525d5641069bdc56f5d91b8520&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b42f821bf61e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>400</b>
+(code=1003, 25.99 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: &quot;abc&quot;}</div>
+<pre>{&quot;code&quot;:1003,&quot;data&quot;:null,&quot;message&quot;:&quot;activityId 必须为数字&quot;,&quot;traceId&quot;:&quot;457dbc664dcb&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-008</span>
+<span>test_seckill_order_cases[SEC-008]</span><span class="mark">regression</span><span class="ms">3.44 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 404 (2.85ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1004，message=活动不存在</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.65 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;75f92d730059&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.45 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_172b4994843d4a7b8c3c4423c1256c24&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aef65349d487&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>404</b>
+(code=1004, 2.85 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 9999}</div>
+<pre>{&quot;code&quot;:1004,&quot;data&quot;:null,&quot;message&quot;:&quot;活动不存在&quot;,&quot;traceId&quot;:&quot;f20ea1de89a2&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-009</span>
+<span>test_seckill_order_cases[SEC-009]</span><span class="mark">regression</span><span class="ms">7.64 ms</span></summary>
+<div class="body"><div class="sec">断言明细（4 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/window 状态码：POST /api/admin/window -&gt; 200 (3.68ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 409 (3.11ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1005，message=活动尚未开始</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 17.45 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5ce84314fd6c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 13.04 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_954bc0609f744b0bb11070af6e17f7de&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b7eb3492a00d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/window -> <b>200</b>
+(code=0, 3.68 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1, &quot;startOffset&quot;: 600, &quot;endOffset&quot;: 3600}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:39:17&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8975188cc1de&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>409</b>
+(code=1005, 3.11 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1005,&quot;data&quot;:null,&quot;message&quot;:&quot;活动尚未开始&quot;,&quot;traceId&quot;:&quot;f54872b0332d&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-010</span>
+<span>test_seckill_order_cases[SEC-010]</span><span class="mark">regression</span><span class="ms">8.55 ms</span></summary>
+<div class="body"><div class="sec">断言明细（4 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/window 状态码：POST /api/admin/window -&gt; 200 (3.95ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 409 (3.71ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1006，message=活动已结束</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.29 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c46215d40768&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.4 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_29dcaa3880464315a6767045596814bb&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5074ed0dafec&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/window -> <b>200</b>
+(code=0, 3.95 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1, &quot;startOffset&quot;: -3600, &quot;endOffset&quot;: -600}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 21:19:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 20:29:17&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f03da60b691d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>409</b>
+(code=1006, 3.71 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1006,&quot;data&quot;:null,&quot;message&quot;:&quot;活动已结束&quot;,&quot;traceId&quot;:&quot;6ce6dd0c183e&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-011</span>
+<span>test_seckill_order_cases[SEC-011]</span><span class="mark">smoke</span> <span class="mark">regression</span><span class="ms">3.25 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 401 (2.7ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1002，message=未登录或登录态已失效</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.99 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;02b487410c67&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.23 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_7e96f4c403594fbdb0a819323392517f&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7a23a4c1e109&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>401</b>
+(code=1002, 2.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1002,&quot;data&quot;:null,&quot;message&quot;:&quot;未登录或登录态已失效&quot;,&quot;traceId&quot;:&quot;504a6746c29d&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-012</span>
+<span>test_seckill_order_cases[SEC-012]</span><span class="mark">regression</span><span class="ms">3.27 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 401 (2.64ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1002，message=未登录或登录态已失效</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.36 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;90549f35efa4&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.35 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_69ba264d2e57491bb7df2872e9e419bd&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b8c50b3a2e54&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>401</b>
+(code=1002, 2.64 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:1002,&quot;data&quot;:null,&quot;message&quot;:&quot;未登录或登录态已失效&quot;,&quot;traceId&quot;:&quot;ea6c7019309f&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">SEC-013</span>
+<span>test_seckill_order_cases[SEC-013]</span><span class="mark">regression</span> <span class="mark">slow</span><span class="ms">18.84 ms</span></summary>
+<div class="body"><div class="sec">断言明细（4 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (5.25ms)</li><li class="a-ok"><b>PASS</b> /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (12.49ms)</li><li class="a-ok"><b>PASS</b> 接口耗时 ≤ 1000ms：/api/seckill/order 耗时 12.49ms</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 25.41 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;219bcec6609f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 3.49 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_821451d94a444f88904ded32875586ce&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ddc14f58f6bd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.25 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3b48159bafe4&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 12.49 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917DAA115&quot;,&quot;remainStock&quot;:9,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5eacdfbbfb96&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-001</span>
+<span>test_order_state_machine[ODR-001]</span><span class="mark">smoke</span> <span class="mark">regression</span><span class="ms">30.61 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (3.94ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (21.28ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO20260912212917C770C2 状态码：GET /api/order/SO20260912212917C770C2 -&gt; 200 (3.58ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=0，message=success</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li></ul><div class="sec">请求 / 响应流水（5 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 7.23 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f8930370758d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 4.18 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_c32fff3b73614e7c9c9d214a6435bcf7&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a7bef4fbd08c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.94 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;1fae618528a0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 21.28 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917C770C2&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;af13f3690db9&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/order/SO20260912212917C770C2 -> <b>200</b>
+(code=0, 3.58 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;amount&quot;:99.0,&quot;createdAt&quot;:&quot;2026-09-12 21:29:17&quot;,&quot;orderNo&quot;:&quot;SO20260912212917C770C2&quot;,&quot;status&quot;:&quot;WAIT_PAY&quot;,&quot;updatedAt&quot;:&quot;2026-09-12 21:29:17&quot;,&quot;userId&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5eafcce438ff&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-002</span>
+<span>test_order_state_machine[ODR-002]</span><span class="mark">regression</span><span class="ms">14.78 ms</span></summary>
+<div class="body"><div class="sec">断言明细（5 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (3.72ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.01ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO202609122129176C1DFD/pay 状态码：POST /api/order/SO202609122129176C1DFD/pay -&gt; 200 (4.51ms)</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li></ul><div class="sec">请求 / 响应流水（5 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 23.52 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;90df5e00e21c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.54 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_b7ccb78ff3c248bd915739ca62f2d76c&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;11318aafb902&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.72 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2a1dedbdeb5c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.01 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129176C1DFD&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d0de5c4ad7e2&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO202609122129176C1DFD/pay -> <b>200</b>
+(code=0, 4.51 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO202609122129176C1DFD&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;PAID&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3fa1582950e9&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-003</span>
+<span>test_order_state_machine[ODR-003]</span><span class="mark">regression</span><span class="ms">43.34 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (3.6ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (6.6ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/order/${order_no}/pay 状态码：POST /api/order/SO202609122129178A8E8B/pay -&gt; 200 (4.87ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO202609122129178A8E8B/complete 状态码：POST /api/order/SO202609122129178A8E8B/complete -&gt; 200 (26.7ms)</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 1 个字段/元素，全部匹配</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 28.1 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7dc58627b301&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.44 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_3067edca9ea244b4aa49fd82ccc8cc99&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7dfb9fe09019&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.6 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2441055a7242&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 6.6 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129178A8E8B&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5dc6d566b889&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO202609122129178A8E8B/pay -> <b>200</b>
+(code=0, 4.87 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO202609122129178A8E8B&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;PAID&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a06f34ca68da&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO202609122129178A8E8B/complete -> <b>200</b>
+(code=0, 26.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO202609122129178A8E8B&quot;,&quot;status&quot;:&quot;COMPLETED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2ac850b5441b&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-004</span>
+<span>test_order_state_machine[ODR-004]</span><span class="mark">regression</span><span class="ms">47.85 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.77ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (27.89ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO2026091221291785CE68/cancel 状态码：POST /api/order/SO2026091221291785CE68/cancel -&gt; 200 (13.75ms)</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> 取消/超时关单后库存已回补到 5：实际 5（期望 5）</li></ul><div class="sec">请求 / 响应流水（5 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 5.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;82631b4cb6a1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 22.87 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_c5940db88d9f4b7993ce102baadd37d7&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;deb0553008b4&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;1976927b345b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 27.89 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO2026091221291785CE68&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c9028252d990&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO2026091221291785CE68/cancel -> <b>200</b>
+(code=0, 13.75 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO2026091221291785CE68&quot;,&quot;remainStock&quot;:5,&quot;status&quot;:&quot;CANCELED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;626c532c10f4&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-005</span>
+<span>test_order_state_machine[ODR-005]</span><span class="mark">regression</span><span class="ms">15.35 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.4ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.17ms)</li><li class="a-ok"><b>PASS</b> /api/admin/expire/SO20260912212917CE2DBD 状态码：POST /api/admin/expire/SO20260912212917CE2DBD -&gt; 200 (4.36ms)</li><li class="a-ok"><b>PASS</b> 响应字段子集：共校验 2 个字段/元素，全部匹配</li><li class="a-ok"><b>PASS</b> 取消/超时关单后库存已回补到 5：实际 5（期望 5）</li></ul><div class="sec">请求 / 响应流水（5 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.22 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3177103c0cda&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.67 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_f7cefc1a6eed4dc6a8342e1b5f1fcd6d&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b988ba2e1da8&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.4 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;05997a8b33a7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.17 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917CE2DBD&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;86684d73338a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/expire/SO20260912212917CE2DBD -> <b>200</b>
+(code=0, 4.36 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212917CE2DBD&quot;,&quot;remainStock&quot;:5,&quot;status&quot;:&quot;TIMEOUT_CLOSED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ed6b8f82756f&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-006</span>
+<span>test_order_state_machine[ODR-006]</span><span class="mark">regression</span><span class="ms">18.92 ms</span></summary>
+<div class="body"><div class="sec">断言明细（8 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.31ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.58ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/order/${order_no}/cancel 状态码：POST /api/order/SO20260912212917821673/cancel -&gt; 200 (4.45ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO20260912212917821673/pay 状态码：POST /api/order/SO20260912212917821673/pay -&gt; 409 (2.74ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1010，message=订单状态不允许从 CANCELED 变更为 PAID</li><li class="a-ok"><b>PASS</b> 非法迁移后库内状态保持不变：实际 &#x27;CANCELED&#x27;</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.51 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;565c16833e5f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.65 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_265dc01587e741059769b01ec72bf673&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;662dc09ee1b7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.31 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e36a8284ee6a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.58 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917821673&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;945404a8e880&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917821673/cancel -> <b>200</b>
+(code=0, 4.45 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212917821673&quot;,&quot;remainStock&quot;:5,&quot;status&quot;:&quot;CANCELED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;1edd640949bd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917821673/pay -> <b>409</b>
+(code=1010, 2.74 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1010,&quot;data&quot;:null,&quot;message&quot;:&quot;订单状态不允许从 CANCELED 变更为 PAID&quot;,&quot;traceId&quot;:&quot;c04a5c17de19&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-007</span>
+<span>test_order_state_machine[ODR-007]</span><span class="mark">regression</span><span class="ms">33.62 ms</span></summary>
+<div class="body"><div class="sec">断言明细（8 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (3.71ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.52ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/order/${order_no}/pay 状态码：POST /api/order/SO20260912212917CC16E7/pay -&gt; 200 (20.3ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO20260912212917CC16E7/cancel 状态码：POST /api/order/SO20260912212917CC16E7/cancel -&gt; 409 (2.75ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1010，message=订单状态不允许从 PAID 变更为 CANCELED</li><li class="a-ok"><b>PASS</b> 非法迁移后库内状态保持不变：实际 &#x27;PAID&#x27;</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;fae43ab0b62d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.34 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_07e48d87e5f943db95b855dece0f0dbc&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;404126da880d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.71 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;09d4661cda6e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.52 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917CC16E7&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;30c9214359e4&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917CC16E7/pay -> <b>200</b>
+(code=0, 20.3 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212917CC16E7&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;PAID&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;043ec0c766a6&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917CC16E7/cancel -> <b>409</b>
+(code=1010, 2.75 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1010,&quot;data&quot;:null,&quot;message&quot;:&quot;订单状态不允许从 PAID 变更为 CANCELED&quot;,&quot;traceId&quot;:&quot;3130cf8f4e49&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-008</span>
+<span>test_order_state_machine[ODR-008]</span><span class="mark">regression</span><span class="ms">20.82 ms</span></summary>
+<div class="body"><div class="sec">断言明细（8 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.77ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.26ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/order/${order_no}/pay 状态码：POST /api/order/SO20260912212917DA5B9A/pay -&gt; 200 (5.31ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO20260912212917DA5B9A/pay 状态码：POST /api/order/SO20260912212917DA5B9A/pay -&gt; 409 (3.75ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1010，message=订单状态不允许从 PAID 变更为 PAID</li><li class="a-ok"><b>PASS</b> 非法迁移后库内状态保持不变：实际 &#x27;PAID&#x27;</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;68bf3253df64&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.2 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_9bc6eafeea5a474484595f1eaa7f5543&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;fe4e97571d4c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c19a808b113d&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.26 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917DA5B9A&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a2bd95235e4a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917DA5B9A/pay -> <b>200</b>
+(code=0, 5.31 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212917DA5B9A&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;PAID&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;02b610fffb22&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917DA5B9A/pay -> <b>409</b>
+(code=1010, 3.75 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1010,&quot;data&quot;:null,&quot;message&quot;:&quot;订单状态不允许从 PAID 变更为 PAID&quot;,&quot;traceId&quot;:&quot;6a098ab4c637&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-009</span>
+<span>test_order_state_machine[ODR-009]</span><span class="mark">regression</span><span class="ms">20.2 ms</span></summary>
+<div class="body"><div class="sec">断言明细（8 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/reset 状态码：POST /api/admin/reset -&gt; 200 (4.36ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/seckill/order 状态码：POST /api/seckill/order -&gt; 200 (5.56ms)</li><li class="a-ok"><b>PASS</b> 前置步骤 /api/admin/expire/${order_no} 状态码：POST /api/admin/expire/SO20260912212917F2E82C -&gt; 200 (4.83ms)</li><li class="a-ok"><b>PASS</b> /api/order/SO20260912212917F2E82C/pay 状态码：POST /api/order/SO20260912212917F2E82C/pay -&gt; 409 (3.51ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1010，message=订单状态不允许从 TIMEOUT_CLOSED 变更为 PAID</li><li class="a-ok"><b>PASS</b> 非法迁移后库内状态保持不变：实际 &#x27;TIMEOUT_CLOSED&#x27;</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（6 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;dd12d73f0cda&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.24 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_6aa8552ec2594472917e56aa9ae2e7cf&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8b6e979d7ad0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.36 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 5}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:5},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;97d41bb60082&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 5.56 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212917F2E82C&quot;,&quot;remainStock&quot;:4,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4ab70e52a57a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/expire/SO20260912212917F2E82C -> <b>200</b>
+(code=0, 4.83 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212917F2E82C&quot;,&quot;remainStock&quot;:5,&quot;status&quot;:&quot;TIMEOUT_CLOSED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9245b0ac6c6c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212917F2E82C/pay -> <b>409</b>
+(code=1010, 3.51 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1010,&quot;data&quot;:null,&quot;message&quot;:&quot;订单状态不允许从 TIMEOUT_CLOSED 变更为 PAID&quot;,&quot;traceId&quot;:&quot;604a40787275&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">ODR-010</span>
+<span>test_order_state_machine[ODR-010]</span><span class="mark">regression</span><span class="ms">3.47 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> /api/order/SO-NOT-EXIST-0001 状态码：GET /api/order/SO-NOT-EXIST-0001 -&gt; 404 (2.58ms)</li><li class="a-ok"><b>PASS</b> 业务状态码：code=1011，message=订单不存在</li></ul><div class="sec">请求 / 响应流水（3 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.79 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c526397c93e8&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.37 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_2f09178ea1fc47d5b0ef55606c92652f&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2840000d18fc&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/order/SO-NOT-EXIST-0001 -> <b>404</b>
+(code=1011, 2.58 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:1011,&quot;data&quot;:null,&quot;message&quot;:&quot;订单不存在&quot;,&quot;traceId&quot;:&quot;4b1f723fe0b8&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_200_users_race_for_limited_stock</span>
+<span>test_200_users_race_for_limited_stock</span><span class="mark">slow</span> <span class="mark">concurrency</span><span class="ms">1693.0 ms</span></summary>
+<div class="body"><div class="sec">断言明细（10 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 成功下单数 = 库存数（不超卖）：实际 10</li><li class="a-ok"><b>PASS</b> 被拦截数 = 总请求数 - 库存数：实际 190</li><li class="a-ok"><b>PASS</b> 无其它异常响应（服务不报错、不超时）：实际 []</li><li class="a-ok"><b>PASS</b> 并发确实打满（QPS &gt; 0）：QPS≈176，耗时 1.14s</li><li class="a-ok"><b>PASS</b> 数据库校验：实际 0</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 10 条</li><li class="a-ok"><b>PASS</b> 订单数与库存最终一致（不变量：库存 + 有效订单数 = 初始库存）：订单数 10，库存 0</li><li class="a-ok"><b>PASS</b> 字段 data.stock：data.stock = 0</li><li class="a-ok"><b>PASS</b> 字段 data.orders：data.orders = 10</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.88 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;adfd53ebc924&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.37 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_2e819f9194cd45dfbe7e681f22e38248&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;673557e1a591&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.87 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:17&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:17&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9ae96cd0e0cc&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/admin/stock/1 -> <b>200</b>
+(code=0, 25.76 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;orders&quot;:10,&quot;stock&quot;:0},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;570c39efaeb4&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_same_user_concurrent_orders_only_one_success</span>
+<span>test_same_user_concurrent_orders_only_one_success</span><span class="mark">concurrency</span><span class="ms">30.57 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 同一用户只允许成功 1 单（幂等）：实际 1</li><li class="a-ok"><b>PASS</b> 其余请求只能是「重复下单」或「限流」：实际 8</li><li class="a-ok"><b>PASS</b> 无其它异常响应：实际 []</li><li class="a-ok"><b>PASS</b> 数据库校验：实际 9</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li></ul><div class="sec">请求 / 响应流水（4 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.4 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0224c62765b6&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 15.08 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_6c14ae573813498792f8df3c37d25fed&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;55a1b5e22efc&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.29 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c8bdbada5682&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 2.25 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_e89ec870cfdd4a7cba8fb0e6f779f1f2&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;2357e286db0a&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_stock_restore_invariant</span>
+<span>test_stock_restore_invariant</span><span class="mark">concurrency</span><span class="ms">159.08 ms</span></summary>
+<div class="body"><div class="sec">断言明细（6 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 5 单全部下单成功：订单号：[&#x27;SO202609122129192EAED9&#x27;, &#x27;SO20260912212919F7B7A0&#x27;, &#x27;SO20260912212919A8669C&#x27;, &#x27;SO202609122129191FEE9E&#x27;, &#x27;SO20260912212919654E90&#x27;]</li><li class="a-ok"><b>PASS</b> 数据库校验：实际 8</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 2 条</li><li class="a-ok"><b>PASS</b> 表 orders 记录数：orders 共 1 条</li><li class="a-ok"><b>PASS</b> 不变量：当前库存 + 有效订单数 = 初始库存：实际 10</li></ul><div class="sec">请求 / 响应流水（11 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.29 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ae22888c4bb0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 26.71 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_05b959ac385845c58957cca94adebee7&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;713d89297eb6&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.35 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0eb7978aea53&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 30.07 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129192EAED9&quot;,&quot;remainStock&quot;:9,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9914c2e4102e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 15.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212919F7B7A0&quot;,&quot;remainStock&quot;:8,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0ce46c2e6ad0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 4.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212919A8669C&quot;,&quot;remainStock&quot;:7,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ed11dab6a116&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 26.16 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO202609122129191FEE9E&quot;,&quot;remainStock&quot;:6,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;63e1ddb80df7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/seckill/order -> <b>200</b>
+(code=0, 4.89 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：{&quot;activityId&quot;: 1}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;amount&quot;:99.0,&quot;orderNo&quot;:&quot;SO20260912212919654E90&quot;,&quot;remainStock&quot;:5,&quot;status&quot;:&quot;WAIT_PAY&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3ca721b275f2&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO202609122129192EAED9/cancel -> <b>200</b>
+(code=0, 25.63 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO202609122129192EAED9&quot;,&quot;remainStock&quot;:6,&quot;status&quot;:&quot;CANCELED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4227269c5556&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/order/SO20260912212919F7B7A0/cancel -> <b>200</b>
+(code=0, 16.21 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212919F7B7A0&quot;,&quot;remainStock&quot;:7,&quot;status&quot;:&quot;CANCELED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e56dd4b4e639&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/expire/SO20260912212919A8669C -> <b>200</b>
+(code=0, 14.43 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;orderNo&quot;:&quot;SO20260912212919A8669C&quot;,&quot;remainStock&quot;:8,&quot;status&quot;:&quot;TIMEOUT_CLOSED&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b7eaa8e6fe70&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_activity_query_p95</span>
+<span>test_activity_query_p95</span><span class="mark">perf</span><span class="ms">1254.03 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> P95 ≤ 800ms（实际 26.1ms）</li><li class="a-ok"><b>PASS</b> 平均耗时 ≤ 400ms（实际 12.3ms）</li></ul><div class="sec">请求 / 响应流水（102 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 3.11 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;837800785f34&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 23.59 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_86f7a9687c0a4c4dbf141131c80f1d63&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;db40b80d5236&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f48e2d1fad86&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.75 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9d46d6645044&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 25.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;352e721f15a3&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 3.35 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;856663ec8072&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 26.59 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b07895e15692&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.8 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8ed7512cc3a2&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 28.23 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6653e6d2a270&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.01 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ac6afbbecc70&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.6 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;892479f39579&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e9484ecffbf7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.17 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9629246cefdd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 16.5 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;bdecdf21f13a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.91 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c1ec27ac83ce&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;bfe1e3dc50b0&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.78 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7025e8014d1c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7fd16de07a9b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 24.8 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e3aaddf3ff2c&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.74 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0281b876eae4&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 13.96 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;22cc0c2a5a62&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.63 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;90c2f2cefd26&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 13.45 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7477d97d53cd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.56 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;93e28367be8e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.46 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8952146f8912&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.12 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3c4db6f116d2&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.51 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3430a695b195&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.76 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;eef6c05efd25&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 12.47 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3f3481187553&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.71 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0d4956f3bf7a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.25 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;55ef595c9975&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.47 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;186a918f86d8&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.25 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5811f61b8d43&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aef6fb7542f7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.44 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e2d5f89eac14&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aa0f6294e1bb&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 3.27 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8811b868bb08&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.49 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6b05ec5ca68f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 24.6 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4ee8a5004d69&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 3.39 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;758292b82af7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 26.15 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f70a9ab9f31b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.3 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6413305e1278&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 3.04 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0dedd9398462&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.87 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8796c837de8f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.54 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8fb683745b2e&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 22.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;07ac33ff00d3&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.92 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f908267c2b59&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.89 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;01bc4b28b191&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 12.23 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;aa520917021b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 16.03 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ef4271a466ca&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.78 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;dd35c06b4e81&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 26.02 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;812569b224c1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.7 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5d89b2e91795&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 12.46 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;46b23df91c36&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.93 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;dfe59905d3e7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.69 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;29515a3d6e05&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.55 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;6d80292e14f2&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 21.93 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;96ea533301ec&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.57 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4d02a355f9d7&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.98 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;198b08558e56&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4912ce8a6792&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 27.39 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ed2b116bbbe1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.66 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;155cf0e84402&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.4 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;c000a28dfeba&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.29 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;7a20a76ab48b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.84 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e4fd055fca58&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.76 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;41d8c82bd7fd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.65 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3d350d9ad3c1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.5 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;58c2f980a3e6&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.29 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;160b83171c32&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 16.3 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d851901fa077&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.13 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d84a54a1049f&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;d2621e87bdec&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.73 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5f3d5476438a&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.44 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a19986e7d235&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.74 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b37574cc8286&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 19.82 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;de8f45992a11&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.2 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9b66e9b078b5&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.53 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;a7f5d841ec73&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.93 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b084b679848b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.67 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;b0bb1c107eff&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.76 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e51010d14631&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.39 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ba645ef73460&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.71 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;84f7a24e6ad1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 19.14 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;0bd56aa37392&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.88 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;3389c2cf8809&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 27.1 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;981186459d63&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.67 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;52f81aaa8076&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 12.06 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9e4341262a41&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.47 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;8ca2fdf816f8&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.77 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;ecf267a19a34&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.96 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;f4d698843af1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 2.79 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;e6f766e90131&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 24.36 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;687a288d3bfa&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.34 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;5918d3b5532b&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 16.06 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;9e0d6f59a8dd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.52 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;bfa0a54e9fea&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 16.38 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;813fbcea9d01&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.13 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;71545b2a94c1&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 14.62 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;423bfca82ed3&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.33 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;43900782fccd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">GET</span> /api/activity/1 -> <b>200</b>
+(code=0, 15.45 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Authorization&quot;: &quot;***&quot;}</div>
+<div class="line">请求体：-</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:19&quot;,&quot;price&quot;:99.0,&quot;startAt&quot;:&quot;2026-09-12 21:28:19&quot;,&quot;status&quot;:&quot;ONLINE&quot;,&quot;stock&quot;:10,&quot;title&quot;:&quot;测试秒杀活动&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;20d852fe81c5&quot;}
+</pre></div></div></details>
+<details class="case">
+<summary><span class="badge ok">通过</span><span class="cid">test_concurrent_throughput_and_error_rate</span>
+<span>test_concurrent_throughput_and_error_rate</span><span class="mark">slow</span> <span class="mark">perf</span><span class="ms">2347.42 ms</span></summary>
+<div class="body"><div class="sec">断言明细（3 条）</div><ul class="asserts"><li class="a-ok"><b>PASS</b> 用例前置：数据复位（stock=10）+ 登录成功</li><li class="a-ok"><b>PASS</b> 错误率 ≤ 1.00%：实际错误率 0.00%</li><li class="a-ok"><b>PASS</b> QPS ≥ 50：实际 QPS≈428</li></ul><div class="sec">请求 / 响应流水（2 次）</div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/admin/reset -> <b>200</b>
+(code=0, 4.72 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;stock&quot;: 10}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;activityId&quot;:1,&quot;endAt&quot;:&quot;2026-09-12 22:29:21&quot;,&quot;startAt&quot;:&quot;2026-09-12 21:28:21&quot;,&quot;stock&quot;:10},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;4fa3319b7bfd&quot;}
+</pre></div><div class="ex">
+<div class="line"><span class="tag">POST</span> /api/auth/login -> <b>200</b>
+(code=0, 22.96 ms)</div>
+<div class="line">请求头：{&quot;Accept&quot;: &quot;application/json&quot;, &quot;Content-Type&quot;: &quot;application/json&quot;}</div>
+<div class="line">请求体：{&quot;username&quot;: &quot;tester&quot;, &quot;password&quot;: &quot;test123&quot;}</div>
+<pre>{&quot;code&quot;:0,&quot;data&quot;:{&quot;expiresIn&quot;:7200,&quot;token&quot;:&quot;tk_7bf45a5b348f4c65a7a708caf97ae576&quot;,&quot;username&quot;:&quot;tester&quot;},&quot;message&quot;:&quot;success&quot;,&quot;traceId&quot;:&quot;dd3c219d9e75&quot;}
+</pre></div></div></details></div>
+<div class="foot">api-autotest-framework ｜ YAML 数据驱动 + 分层设计 ｜ 报告由 framework/report.py 生成</div>
+</div></body></html>

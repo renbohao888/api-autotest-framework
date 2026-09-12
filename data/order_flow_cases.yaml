@@ -1,0 +1,127 @@
+# 订单状态机的数据驱动用例（状态迁移法）
+# 状态：WAIT_PAY -> PAID -> COMPLETED；WAIT_PAY -> CANCELED / TIMEOUT_CLOSED（回补库存）
+# setup 里用 extract 把 orderNo 提取成变量，主请求用 ${order_no} 引用
+# 注意：flow 风格（花括号）中带 ${} 的路径必须加引号，否则 YAML 解析报错
+group: order_flow
+cases:
+  - id: ODR-001
+    name: 下单后订单初始状态为待支付
+    tags: [smoke, regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+    method: GET
+    path: "/api/order/${order_no}"
+    expect_status: 200
+    expect_code: 0
+    expect_data: {status: WAIT_PAY, amount: 99.0}
+
+  - id: ODR-002
+    name: 合法迁移：待支付 -> 已支付
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+    method: POST
+    path: "/api/order/${order_no}/pay"
+    expect_status: 200
+    expect_data: {status: PAID, remainStock: 4}
+
+  - id: ODR-003
+    name: 合法迁移：已支付 -> 已完成
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+      - {method: POST, path: "/api/order/${order_no}/pay"}
+    method: POST
+    path: "/api/order/${order_no}/complete"
+    expect_status: 200
+    expect_data: {status: COMPLETED}
+
+  - id: ODR-004
+    name: 合法迁移：待支付 -> 已取消（库存回补）
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+    method: POST
+    path: "/api/order/${order_no}/cancel"
+    expect_status: 200
+    expect_data: {status: CANCELED, remainStock: 5}
+
+  - id: ODR-005
+    name: 合法迁移：待支付 -> 支付超时关单（库存回补）
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+    method: POST
+    path: "/api/admin/expire/${order_no}"
+    expect_status: 200
+    expect_data: {status: TIMEOUT_CLOSED, remainStock: 5}
+
+  - id: ODR-006
+    name: 非法迁移：已取消 -> 已支付被拒绝
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+      - {method: POST, path: "/api/order/${order_no}/cancel"}
+    method: POST
+    path: "/api/order/${order_no}/pay"
+    expect_status: 409
+    expect_code: 1010
+
+  - id: ODR-007
+    name: 非法迁移：已支付 -> 已取消被拒绝
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+      - {method: POST, path: "/api/order/${order_no}/pay"}
+    method: POST
+    path: "/api/order/${order_no}/cancel"
+    expect_status: 409
+    expect_code: 1010
+
+  - id: ODR-008
+    name: 非法迁移：重复支付被拒绝
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+      - {method: POST, path: "/api/order/${order_no}/pay"}
+    method: POST
+    path: "/api/order/${order_no}/pay"
+    expect_status: 409
+    expect_code: 1010
+
+  - id: ODR-009
+    name: 非法迁移：超时关单后不能支付
+    tags: [regression]
+    setup:
+      - {method: POST, path: /api/admin/reset, auth: false, json: {stock: 5}}
+      - {method: POST, path: /api/seckill/order, json: {activityId: 1},
+         extract: {order_no: data.orderNo}}
+      - {method: POST, path: "/api/admin/expire/${order_no}"}
+    method: POST
+    path: "/api/order/${order_no}/pay"
+    expect_status: 409
+    expect_code: 1010
+
+  - id: ODR-010
+    name: 异常：查询不存在的订单返回 1011
+    tags: [regression]
+    method: GET
+    path: /api/order/SO-NOT-EXIST-0001
+    expect_status: 404
+    expect_code: 1011
